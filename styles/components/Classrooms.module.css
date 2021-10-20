@@ -1,0 +1,23 @@
+.row {
+  width: 150px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.container {
+  margin-top: 50px;
+  height: calc(100% - 110px);
+}
+.innerContainer {
+  height: calc(100% - 60px);
+  overflow-y: scroll;
+}
+.classroom {
+  display: flex;
+  margin: 10px 0;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  overflow: hidden;
+}

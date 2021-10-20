@@ -18,6 +18,7 @@ a {
 .container {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 .h100 {
   height: "100%";

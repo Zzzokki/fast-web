@@ -27,7 +27,7 @@ const LoginPage = () => {
           <Input title="Нууц үг" value={password} onChange={passwordHandler} />
           <Button
             onClick={() => {
-              router.push("/dashboard");
+              router.push("/dashboard/classrooms");
             }}
             bg="#4163E3"
             c="#fff"
