@@ -1,9 +1,9 @@
 .container {
-  padding: 50px;
+  padding: 20px;
 }
 .header {
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .backButton {
   width: 40px;
@@ -29,5 +29,5 @@
   font-size: 14px;
 }
 .table {
-  height: calc(100% - 110px);
+  height: calc(100% - 80px);
 }

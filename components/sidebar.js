@@ -9,7 +9,7 @@ const Sidebar = () => {
     <div className={`h100 ${styles.container}`}>
       <div
         onClick={() => {
-          router.push("classrooms");
+          router.push("/dashboard/classrooms");
         }}
         className={styles.button}
       >
@@ -17,7 +17,7 @@ const Sidebar = () => {
       </div>
       <div
         onClick={() => {
-          router.push("students");
+          router.push("/dashboard/students");
         }}
         className={styles.button}
       >

@@ -1,4 +1,33 @@
 .container {
-  background-color: #f2f2f2;
   border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.header {
+  height: 48px;
+}
+.fullname {
+  background-color: #f2f2f2;
+  width: 300px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #fff;
+  font-size: 14px;
+}
+.innerContainer {
+  height: calc(100% - 48px);
+  overflow-y: scroll;
+}
+.record {
+  height: 100%;
+  width: calc(100% - 300px);
+  border: 1px solid brown;
+  overflow-x: scroll;
+}
+.cell {
+  height: 48px;
+  width: 180px;
+  border-bottom: 1px solid #f2f2f2;
 }
