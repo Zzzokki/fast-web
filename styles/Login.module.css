@@ -1,0 +1,9 @@
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.formContainer {
+  width: 768px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
