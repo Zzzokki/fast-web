@@ -4,7 +4,7 @@ import Sidebar from "../../../components/sidebar";
 import Switcher from "../../../components/switcher";
 import Classrooms from "./classrooms";
 
-const Dashboard = () => {
+const ClassroomsPage = () => {
   return (
     <div className={`container flex`}>
       <Sidebar />
@@ -16,4 +16,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ClassroomsPage;
