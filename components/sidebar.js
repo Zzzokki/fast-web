@@ -6,7 +6,7 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <div className={`h100 ${styles.container}`}>
+    <div className={`h100 w100 ${styles.container}`}>
       <div
         onClick={() => {
           router.push("/dashboard/classrooms");

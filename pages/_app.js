@@ -1,7 +1,20 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import { useRouter } from "next/router";
+import Sidebar from "../components/sidebar";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }) => {
+  const router = useRouter();
 
-export default MyApp
+  return (
+    <div className="container">
+      <div className="h100">
+        <Sidebar />
+      </div>
+      <div className="h100">
+        <Component {...pageProps} />
+      </div>
+    </div>
+  );
+};
+
+export default MyApp;

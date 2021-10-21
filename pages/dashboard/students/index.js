@@ -6,11 +6,8 @@ import StudentsTable from "./studentsTable";
 
 const StudentsPage = (props) => {
   return (
-    <div className={`container flex`}>
-      <Sidebar />
-      <div className={`h100 flex f1 ${styles.container}`}>
-        <StudentsTable />
-      </div>
+    <div className={`h100 w100 ${styles.container}`}>
+      <StudentsTable />
     </div>
   );
 };

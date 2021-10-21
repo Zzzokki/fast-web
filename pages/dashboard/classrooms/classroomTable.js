@@ -1897,40 +1897,40 @@ const data = [
 const ClassroomTable = () => {
   return (
     <div className={`h100 w100 ${styles.container}`}>
-      <div className={`w100 flex ${styles.header}`}>
-        <div style={{ borderTop: "none" }} className={`${styles.fullname}`}>
-          Овог нэр
-        </div>
-        <div className={`flex f1`}>
+      <div className={`w100 ${styles.header}`}>
+        <div className={``}>Овог нэр</div>
+        <div className={`flex`}>
           <div>Ирц</div>
           <div>Гэрийн даалгавар</div>
           <div>Шалгалт</div>
           <div>Хувийн шалгалт</div>
         </div>
       </div>
-      <div className={`w100 flex ${styles.innerContainer}`}>
-        <div className={`h100 ${styles.fullnames}`}>
-          <div className={`${styles.fullname}`} />
-          {data.map((item) => (
-            <div
-              className={`${styles.fullname}`}
-            >{`${item.lastname} ${item.firstname}`}</div>
-          ))}
-        </div>
-        <div className={`${styles.record}`}>
-          <div className={`flex`}>
+      <div className={`w100 ${styles.header}`}>
+        <div></div>
+        <div>
+          <div className={`${styles.dates}`}>
             {data[0].attendance.map((item) => (
-              <div className={`${styles.cell}`}>{item.date}</div>
+              <div></div>
             ))}
           </div>
-          {data.map((item) => (
-            <div className={`flex`}>
-              {item.attendance.map((el) => (
-                <div className={`${styles.cell}`}>{el.value}</div>
+        </div>
+      </div>
+      <div className={`w100 ${styles.tableContainer}`}>
+        <div className={`${styles.table}`}>
+          <div className={`${styles.innerTable}`}>
+            <div>
+              {data.map((item) => (
+                <div className={`w100 ${styles.fullname}`}>
+                  {item.firstname}
+                </div>
               ))}
             </div>
-          ))}
+          </div>
         </div>
+        <div style={{ border: "1px solid red" }}></div>
+        <div style={{ border: "1px solid red" }}></div>
+        <div style={{ border: "1px solid red" }}></div>
       </div>
     </div>
   );

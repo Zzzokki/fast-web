@@ -1,13 +1,33 @@
 .container {
-  width: fit-content;
-  padding: 6px;
-  border-radius: 6px;
+  position: relative;
+  width: 412px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
   background-color: #f2f2f2;
+}
+.slider {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  height: 48px;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.options {
+  position: absolute;
+  width: fit-content;
+  display: flex;
 }
 .option {
   height: 48px;
+  width: 200px;
   display: flex;
-  padding: 0 12px;
+  font-size: 14px;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
 }
