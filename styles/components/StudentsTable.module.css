@@ -7,11 +7,22 @@
   max-height: calc(100vh - 88px);
   overflow-y: scroll;
 }
+.students::-webkit-scrollbar {
+  width: 12px;
+}
+.students::-webkit-scrollbar-thumb {
+  width: 12px;
+  border-radius: 6px;
+  background-color: #dadce0;
+}
+.students::-webkit-scrollbar-track {
+  border-left: 1px solid #f2f2f2;
+}
 .header {
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   display: grid;
-  grid-template-columns: 48px 300px 1fr 1fr 1fr 1fr 48px;
+  grid-template-columns: 48px 300px 1fr 1fr 1fr 1fr 48px 12px;
   height: 48px;
 }
 .row {
@@ -33,6 +44,9 @@
 }
 .bbr {
   border-right: 1px solid #f2f2f2;
+}
+.bbl {
+  border-left: 1px solid #f2f2f2;
 }
 .wbt {
   border-top: 1px solid #fff;

@@ -11,19 +11,25 @@
   width: 40px;
   height: 60px;
   background-color: #f2f2f2;
-  border-radius: 10px;
+  border-radius: 6px;
   margin-right: 10px;
   cursor: pointer;
+}
+.addStudentButton {
+  height: 60px;
+  border-radius: 6px;
+  width: 150px;
+  margin-left: 10px;
 }
 .classroom {
   flex: 1;
   display: flex;
   background-color: #f2f2f2;
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
 }
 .row {
-  width: 150px;
+  flex: 1;
   height: 60px;
   display: flex;
   align-items: center;

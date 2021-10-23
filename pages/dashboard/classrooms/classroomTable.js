@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import styles from "../../../styles/components/ClassroomTable.module.css";
+
+import Scroll from "../../../components/scroll";
+import Status from "./status";
 
 const data = [
   {
@@ -1894,43 +1897,92 @@ const data = [
   },
 ];
 
+const sections = ["Ирц", "Гэрийн даалгавар", "Шалгалт", "Хувийн шалгалт"];
+
 const ClassroomTable = () => {
+  const [section, setSection] = useState(0);
+
+  const scrollX = useRef(null);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   return (
     <div className={`h100 w100 ${styles.container}`}>
+      {/* Header */}
+
       <div className={`w100 ${styles.header}`}>
-        <div className={``}>Овог нэр</div>
+        <div className={`${styles.fullnameTitle}`}>Овог нэр</div>
         <div className={`flex`}>
-          <div>Ирц</div>
-          <div>Гэрийн даалгавар</div>
-          <div>Шалгалт</div>
-          <div>Хувийн шалгалт</div>
+          {sections.map((section, index) => (
+            <div
+              onClick={() => {
+                setSection(index);
+              }}
+              className={`${styles.section}`}
+            >
+              {section}
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Dates */}
+
       <div className={`w100 ${styles.header}`}>
-        <div></div>
-        <div>
-          <div className={`${styles.dates}`}>
+        <div className={`${styles.fullname}`} />
+        <div className={`${styles.datesScroll}`}>
+          <div
+            style={{ transform: `translateX(-${scrollLeft}px)` }}
+            className={`${styles.dates}`}
+          >
             {data[0].attendance.map((item) => (
-              <div></div>
+              <div className={`${styles.recordCell}`}></div>
+            ))}
+          </div>
+        </div>
+        <div className={`${styles.dateEnd}`} />
+      </div>
+
+      {/* Vertical Scroll */}
+
+      <div className={`w100 ${styles.scrollYContainer}`}>
+        {/* Fullnames */}
+
+        <div>
+          {data.map((item) => (
+            <div className={`w100 ${styles.fullname}`}>{item.firstname}</div>
+          ))}
+        </div>
+
+        {/* Horizontal Scroll */}
+
+        <div
+          ref={scrollX}
+          onScroll={() => {
+            if (scrollX) {
+              setScrollLeft(scrollX.current.scrollLeft);
+            }
+          }}
+          className={`${styles.scrollXContainer}`}
+        >
+          <div className={`${styles.record}`}>
+            {data.map((item) => (
+              <div className={`flex ${styles.recordRow}`}>
+                {item.attendance.map((e) => (
+                  <div className={`${styles.recordCell}`}>
+                    <Status section={section} value={e.value} />
+                  </div>
+                ))}
+              </div>
             ))}
           </div>
         </div>
       </div>
-      <div className={`w100 ${styles.tableContainer}`}>
-        <div className={`${styles.table}`}>
-          <div className={`${styles.innerTable}`}>
-            <div>
-              {data.map((item) => (
-                <div className={`w100 ${styles.fullname}`}>
-                  {item.firstname}
-                </div>
-              ))}
-            </div>
-          </div>
+      <div className={`${styles.scrollX}`}>
+        <div className={`${styles.fullname}`} />
+        <div className={`${styles.scrollXInner}`}>
+          <Scroll scrollLeft={scrollLeft} scroll={scrollX} />
         </div>
-        <div style={{ border: "1px solid red" }}></div>
-        <div style={{ border: "1px solid red" }}></div>
-        <div style={{ border: "1px solid red" }}></div>
+        <div className={`${styles.scrollXEnd}`} />
       </div>
     </div>
   );

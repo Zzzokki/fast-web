@@ -22,7 +22,9 @@ a {
   grid-template-columns: 240px 1fr;
   overflow: hidden;
 }
-
+.p20 {
+  padding: 20px;
+}
 .h100 {
   height: 100%;
 }
