@@ -1,9 +1,16 @@
 .container {
+  height: 100%;
+  width: 100%;
+  display: flex;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .formContainer {
   width: 768px;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
+}
+.form {
+  width: 400px;
 }

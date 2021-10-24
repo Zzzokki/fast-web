@@ -13,7 +13,13 @@ const Status = ({ section, value }) => {
       className={`${styles.container}`}
     >
       {section === 0 && (
-        <div>
+        <div
+          style={{
+            backgroundColor:
+              status === 0 ? "#7AF696" : status === 1 ? "#FF3636" : "#78C6FF",
+          }}
+          className={`${styles.chip}`}
+        >
           {status === 0 ? "Ирсэн" : status === 1 ? "Тасалсан" : "Чөлөөтэй"}
         </div>
       )}

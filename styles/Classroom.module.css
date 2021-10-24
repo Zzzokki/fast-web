@@ -1,32 +1,23 @@
 .container {
+  width: 100%;
+  height: 100%;
   padding: 20px;
-  display: grid;
-  grid-template-rows: 80px 1fr;
 }
+
+/* Header */
+
 .header {
+  display: flex;
   width: 100%;
   margin-bottom: 20px;
-}
-.backButton {
-  width: 40px;
-  height: 60px;
-  background-color: #f2f2f2;
-  border-radius: 6px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-.addStudentButton {
-  height: 60px;
-  border-radius: 6px;
-  width: 150px;
-  margin-left: 10px;
 }
 .classroom {
   flex: 1;
   display: flex;
-  background-color: #f2f2f2;
+  background-color: #fff;
   border-radius: 6px;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .row {
   flex: 1;

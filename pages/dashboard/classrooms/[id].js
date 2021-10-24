@@ -1,45 +1,41 @@
 import React from "react";
 import styles from "../../../styles/Classroom.module.css";
+
 import { useRouter } from "next/router";
-import ClassroomTable from "./classroomTable";
+
+import Layout from "../../../layouts/layout";
 import Button from "../../../components/button";
 
-const rows = [
-  "Багш",
-  "Хуваарь",
-  "Анги",
-  "Анги дүүргэлт",
-  "Эхлэх хугацаа",
-  "Дуусах хугацаа",
-];
+import ClassroomTable from "../../../components/classroom/classroomTable";
 
 const ClassroomPage = () => {
   const router = useRouter();
 
   return (
-    <div className={`w100 h100 p20`}>
-      <div className={`w100 flex ${styles.header}`}>
-        <div
-          onClick={() => {
-            router.push("/dashboard/classrooms");
-          }}
-          className={styles.backButton}
-        ></div>
-        <div className={`${styles.classroom}`}>
-          {rows.map((item, index) => (
-            <div key={`${index}`} className={styles.row}>
-              {item}
-            </div>
-          ))}
+    <Layout>
+      <div className={styles.container}>
+        {/* Header */}
+
+        <div className={styles.header}>
+          <Button
+            w='40px'
+            h='40px'
+            mr='20px'
+            onClick={() => {
+              router.push("/dashboard/classrooms");
+            }}
+          >{`<`}</Button>
+          <div className={styles.classroom}></div>
+          <Button ml='20px' w='150px' h='40px'>
+            Сурагч нэмэх
+          </Button>
         </div>
-        <div className={`${styles.addStudentButton}`}>
-          <Button>Сурагч нэмэх</Button>
-        </div>
-      </div>
-      <div className={`w100`}>
+
+        {/* Table */}
+
         <ClassroomTable />
       </div>
-    </div>
+    </Layout>
   );
 };
 

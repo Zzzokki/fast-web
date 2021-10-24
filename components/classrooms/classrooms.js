@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../styles/components/Classrooms.module.css";
+import styles from "../../styles/components/classrooms/Classrooms.module.css";
 
 const rows = [
   "Багш",
@@ -13,7 +13,7 @@ const rows = [
 const Classrooms = (props) => {
   return (
     <div className={styles.container}>
-      <div className={`flex ${styles.header}`}>
+      <div className={styles.header}>
         {rows.map((item) => (
           <div key={item} className={styles.row}>
             {item}
@@ -22,7 +22,11 @@ const Classrooms = (props) => {
       </div>
       <div className={styles.innerContainer}>
         {props.data.map((item, index) => (
-          <div key={`${index}`} className={styles.classroom}>
+          <div
+            key={`${index}`}
+            style={{ borderTop: index > 0 && "1px solid rgba(0, 0, 0, 0.2)" }}
+            className={styles.classroom}
+          >
             {rows.map((item, index) => (
               <div key={`${index}`} className={styles.row}>
                 {item}

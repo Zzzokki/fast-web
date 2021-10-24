@@ -5,8 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background-color: #f2f2f2;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .slider {
   position: absolute;
@@ -14,8 +15,9 @@
   left: 6px;
   height: 48px;
   width: 200px;
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: #fbb532;
+  border-radius: 6px;
+  transition: 300ms;
 }
 .options {
   position: absolute;
@@ -30,4 +32,5 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: 300ms;
 }

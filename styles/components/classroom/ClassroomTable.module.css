@@ -1,0 +1,103 @@
+.container {
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* Header  */
+
+.header {
+  height: 40px;
+  display: grid;
+  grid-template-columns: 300px 1fr 12px;
+}
+.sections {
+  display: flex;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+.section {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.section p {
+  width: fit-content;
+  font-size: 12px;
+  padding: 6px 0;
+  margin: 0 20px;
+}
+
+/* Date */
+
+.datesContainer {
+  width: calc(100vw - 552px);
+  overflow: hidden;
+}
+.dates {
+  width: fit-content;
+  display: flex;
+}
+.dateEnd {
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Table */
+
+.tableContainer {
+  display: flex;
+}
+.fullnames {
+  max-height: calc(100vh - 192px);
+  overflow: hidden;
+}
+.fullname {
+  width: 300px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.scrollPart {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Record */
+
+.record {
+  max-height: calc(100vh - 180px);
+  max-width: calc(100vw - 540px);
+  overflow: scroll;
+}
+.record::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.record::-webkit-scrollbar-track {
+  width: 12px;
+  height: 12px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.record::-webkit-scrollbar-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: #dadce0;
+}
+.recordRow {
+  width: fit-content;
+}
+.recordCell {
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}

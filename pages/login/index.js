@@ -18,19 +18,29 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={`container flex ${styles.container}`}>
-      <div className="f1"></div>
-      <div className={`h100 flex ${styles.formContainer}`}>
-        <div className={`${styles.form}`}>
+    <div className={styles.container}>
+      <div className='f1'></div>
+      <div className={styles.formContainer}>
+        <div className={styles.form}>
           <div></div>
-          <Input title="Имэйл" value={email} onChange={emailHandler} />
-          <Input title="Нууц үг" value={password} onChange={passwordHandler} />
+          <Input
+            mb='16px'
+            title='Имэйл'
+            value={email}
+            onChange={emailHandler}
+          />
+          <Input
+            mb='16px'
+            title='Нууц үг'
+            value={password}
+            onChange={passwordHandler}
+          />
           <Button
+            h='48px'
+            mt='60px'
             onClick={() => {
               router.push("/dashboard/classrooms");
             }}
-            bg="#4163E3"
-            c="#fff"
           >
             Нэвтрэх
           </Button>

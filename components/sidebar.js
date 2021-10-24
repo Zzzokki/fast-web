@@ -6,12 +6,19 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <div className={`h100 w100 ${styles.container}`}>
+    <div className={styles.container}>
+      <div className={styles.logo}></div>
       <div
         onClick={() => {
           router.push("/dashboard/classrooms");
         }}
         className={styles.button}
+        style={{
+          borderLeft:
+            router?.asPath.split("/")[2] === "classrooms"
+              ? "4px solid #fbb532"
+              : "4px solid #000",
+        }}
       >
         Ангиуд
       </div>
@@ -20,6 +27,12 @@ const Sidebar = () => {
           router.push("/dashboard/students");
         }}
         className={styles.button}
+        style={{
+          borderLeft:
+            router?.asPath.split("/")[2] === "students"
+              ? "4px solid #fbb532"
+              : "4px solid #000",
+        }}
       >
         Сурагчид
       </div>

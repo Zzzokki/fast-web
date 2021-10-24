@@ -1,0 +1,35 @@
+.container {
+  height: fit-content;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.students {
+  max-height: calc(100vh - 80px);
+  overflow-y: scroll;
+}
+.students::-webkit-scrollbar {
+  width: 12px;
+}
+.students::-webkit-scrollbar-thumb {
+  width: 12px;
+  border-radius: 6px;
+  background-color: #dadce0;
+}
+.header {
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: grid;
+  grid-template-columns: 30px 280px 1fr 1fr 1fr 1fr 30px 12px;
+  height: 40px;
+}
+.cell {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}

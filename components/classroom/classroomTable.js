@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
-import styles from "../../../styles/components/ClassroomTable.module.css";
+import styles from "../../styles/components/classroom/ClassroomTable.module.css";
 
-import Scroll from "../../../components/scroll";
-import Status from "./status";
+import Fullname from "./fullname";
 
 const data = [
   {
@@ -1900,26 +1899,36 @@ const data = [
 const sections = ["Ирц", "Гэрийн даалгавар", "Шалгалт", "Хувийн шалгалт"];
 
 const ClassroomTable = () => {
-  const [section, setSection] = useState(0);
+  const [sectionIndex, setSectionIndex] = useState(0);
 
-  const scrollX = useRef(null);
+  const scroll = useRef(null);
   const [scrollLeft, setScrollLeft] = useState(0);
 
   return (
-    <div className={`h100 w100 ${styles.container}`}>
+    <div className={styles.container}>
       {/* Header */}
 
-      <div className={`w100 ${styles.header}`}>
-        <div className={`${styles.fullnameTitle}`}>Овог нэр</div>
-        <div className={`flex`}>
+      <div className={styles.header}>
+        <Fullname />
+        <div className={styles.sections}>
           {sections.map((section, index) => (
             <div
               onClick={() => {
-                setSection(index);
+                setSectionIndex(index);
               }}
-              className={`${styles.section}`}
+              className={styles.section}
             >
-              {section}
+              <p
+                style={{
+                  borderBottom:
+                    sectionIndex === index
+                      ? "2px solid #fbb532"
+                      : "2px solid #fff",
+                  color: sectionIndex === index ? "#fbb532" : "rgba(0,0,0,0.5)",
+                }}
+              >
+                {section}
+              </p>
             </div>
           ))}
         </div>
@@ -1928,8 +1937,8 @@ const ClassroomTable = () => {
       {/* Dates */}
 
       <div className={`w100 ${styles.header}`}>
-        <div className={`${styles.fullname}`} />
-        <div className={`${styles.datesScroll}`}>
+        <div className={styles.fullname} />
+        <div className={`${styles.datesContainer}`}>
           <div
             style={{ transform: `translateX(-${scrollLeft}px)` }}
             className={`${styles.dates}`}
@@ -1942,47 +1951,41 @@ const ClassroomTable = () => {
         <div className={`${styles.dateEnd}`} />
       </div>
 
-      {/* Vertical Scroll */}
+      {/* Table */}
 
-      <div className={`w100 ${styles.scrollYContainer}`}>
+      <div className={styles.tableContainer}>
         {/* Fullnames */}
 
-        <div>
-          {data.map((item) => (
-            <div className={`w100 ${styles.fullname}`}>{item.firstname}</div>
-          ))}
+        <div className={styles.fullnamesContainer}>
+          <div className={styles.fullnames}>
+            {data.map((item) => (
+              <div className={`w100 ${styles.fullname}`}>{item.firstname}</div>
+            ))}
+          </div>
+          <div className={styles.scrollPart}></div>
         </div>
 
         {/* Horizontal Scroll */}
 
         <div
-          ref={scrollX}
+          ref={scroll}
           onScroll={() => {
-            if (scrollX) {
-              setScrollLeft(scrollX.current.scrollLeft);
+            if (scroll) {
+              setScrollLeft(scroll.current.scrollLeft);
             }
           }}
-          className={`${styles.scrollXContainer}`}
+          className={styles.record}
         >
-          <div className={`${styles.record}`}>
-            {data.map((item) => (
-              <div className={`flex ${styles.recordRow}`}>
-                {item.attendance.map((e) => (
-                  <div className={`${styles.recordCell}`}>
-                    <Status section={section} value={e.value} />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
+          {data.map((item, index) => (
+            <div className={`flex ${styles.recordRow}`}>
+              {item.attendance.map((e) => (
+                <div className={`${styles.recordCell}`}>
+                  {/* <Status section={section} value={e.value} /> */}
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
-      </div>
-      <div className={`${styles.scrollX}`}>
-        <div className={`${styles.fullname}`} />
-        <div className={`${styles.scrollXInner}`}>
-          <Scroll scrollLeft={scrollLeft} scroll={scrollX} />
-        </div>
-        <div className={`${styles.scrollXEnd}`} />
       </div>
     </div>
   );
