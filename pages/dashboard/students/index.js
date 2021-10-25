@@ -6,8 +6,11 @@ import Button from "../../../components/button";
 
 import Classroom from "../../../components/students/classroom";
 import StudentsTable from "../../../components/students/studentsTable";
+import AddStudent from "../../../modals/addStudent";
 
 const StudentsPage = (props) => {
+  const [adding, setAdding] = useState(false);
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -28,6 +31,7 @@ const StudentsPage = (props) => {
 
         <StudentsTable />
       </div>
+      {adding && <AddStudent />}
     </Layout>
   );
 };
