@@ -1,8 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import styles from "../../styles/components/classroom/ClassroomTable.module.css";
 
 import Attendance from "./attendance";
 import Homework from "./homework";
+import Dates from "./dates";
+import Fullnames from "./fullnames";
 
 import Fullname from "./fullname";
 import Exam from "./exam";
@@ -1905,10 +1907,7 @@ const sections = ["Ирц", "Гэрийн даалгавар", "Шалгалт",
 
 const ClassroomTable = () => {
   const [sectionIndex, setSectionIndex] = useState(0);
-
   const scroll = useRef(null);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [scrollTop, setScrollTop] = useState(0);
 
   const Cell = ({ value }) => {
     switch (sectionIndex) {
@@ -1959,19 +1958,7 @@ const ClassroomTable = () => {
       <div className={styles.header}>
         <div className={styles.fullname} />
         <div className={styles.datesContainer}>
-          <div
-            style={{ transform: `translateX(${-scrollLeft}px)` }}
-            className={styles.dates}
-          >
-            {data[0].attendance.map((item, index) => (
-              <div
-                style={{
-                  borderLeft: index === 0 && "none",
-                }}
-                className={styles.recordCell}
-              ></div>
-            ))}
-          </div>
+          {scroll && <Dates scroll={scroll} data={data[0].attendance} />}
         </div>
         <div className={styles.dateEnd} />
       </div>
@@ -1983,27 +1970,14 @@ const ClassroomTable = () => {
 
         <div className={styles.fullnamesContainer}>
           <div className={styles.fullnames}>
-            <div style={{ transform: `translateY(${-scrollTop}px)` }}>
-              {data.map((item) => (
-                <div className={styles.fullname}>{item.firstname}</div>
-              ))}
-            </div>
+            {scroll && <Fullnames scroll={scroll} data={data} />}
           </div>
           <div className={styles.scrollPart} />
         </div>
 
         {/* Horizontal Scroll */}
 
-        <div
-          ref={scroll}
-          onScroll={() => {
-            if (scroll) {
-              setScrollLeft(scroll.current.scrollLeft);
-              setScrollTop(scroll.current.scrollTop);
-            }
-          }}
-          className={styles.record}
-        >
+        <div ref={scroll} className={styles.record}>
           {data.map((item) => (
             <div className={styles.recordRow}>
               {item.attendance.map((e, index) => (

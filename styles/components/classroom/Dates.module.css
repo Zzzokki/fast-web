@@ -1,0 +1,14 @@
+.dates {
+  width: fit-content;
+  display: flex;
+}
+.recordCell {
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fbb532;
+}
