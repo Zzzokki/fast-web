@@ -1,7 +1,12 @@
 import React, { useState, useRef } from "react";
 import styles from "../../styles/components/classroom/ClassroomTable.module.css";
 
+import Attendance from "./attendance";
+import Homework from "./homework";
+
 import Fullname from "./fullname";
+import Exam from "./exam";
+import PersonalExam from "./personalExam";
 
 const data = [
   {
@@ -1903,6 +1908,20 @@ const ClassroomTable = () => {
 
   const scroll = useRef(null);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const Cell = ({ value }) => {
+    switch (sectionIndex) {
+      case 0:
+        return <Attendance value={value} />;
+      case 1:
+        return <Homework value={value} />;
+      case 2:
+        return <Exam value={value} />;
+      case 3:
+        return <PersonalExam value={value} />;
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -1913,6 +1932,7 @@ const ClassroomTable = () => {
         <div className={styles.sections}>
           {sections.map((section, index) => (
             <div
+              key={index}
               onClick={() => {
                 setSectionIndex(index);
               }}
@@ -1936,19 +1956,24 @@ const ClassroomTable = () => {
 
       {/* Dates */}
 
-      <div className={`w100 ${styles.header}`}>
+      <div className={styles.header}>
         <div className={styles.fullname} />
-        <div className={`${styles.datesContainer}`}>
+        <div className={styles.datesContainer}>
           <div
-            style={{ transform: `translateX(-${scrollLeft}px)` }}
-            className={`${styles.dates}`}
+            style={{ transform: `translateX(${-scrollLeft}px)` }}
+            className={styles.dates}
           >
-            {data[0].attendance.map((item) => (
-              <div className={`${styles.recordCell}`}></div>
+            {data[0].attendance.map((item, index) => (
+              <div
+                style={{
+                  borderLeft: index === 0 && "none",
+                }}
+                className={styles.recordCell}
+              ></div>
             ))}
           </div>
         </div>
-        <div className={`${styles.dateEnd}`} />
+        <div className={styles.dateEnd} />
       </div>
 
       {/* Table */}
@@ -1958,11 +1983,13 @@ const ClassroomTable = () => {
 
         <div className={styles.fullnamesContainer}>
           <div className={styles.fullnames}>
-            {data.map((item) => (
-              <div className={`w100 ${styles.fullname}`}>{item.firstname}</div>
-            ))}
+            <div style={{ transform: `translateY(${-scrollTop}px)` }}>
+              {data.map((item) => (
+                <div className={styles.fullname}>{item.firstname}</div>
+              ))}
+            </div>
           </div>
-          <div className={styles.scrollPart}></div>
+          <div className={styles.scrollPart} />
         </div>
 
         {/* Horizontal Scroll */}
@@ -1972,21 +1999,28 @@ const ClassroomTable = () => {
           onScroll={() => {
             if (scroll) {
               setScrollLeft(scroll.current.scrollLeft);
+              setScrollTop(scroll.current.scrollTop);
             }
           }}
           className={styles.record}
         >
-          {data.map((item, index) => (
-            <div className={`flex ${styles.recordRow}`}>
-              {item.attendance.map((e) => (
-                <div className={`${styles.recordCell}`}>
-                  {/* <Status section={section} value={e.value} /> */}
+          {data.map((item) => (
+            <div className={styles.recordRow}>
+              {item.attendance.map((e, index) => (
+                <div
+                  style={{
+                    borderLeft: index === 0 && "none",
+                  }}
+                  className={styles.recordCell}
+                >
+                  <Cell value={e.value} />
                 </div>
               ))}
             </div>
           ))}
         </div>
       </div>
+      <div className={styles.corner} />
     </div>
   );
 };
