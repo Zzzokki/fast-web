@@ -18,7 +18,8 @@ const Button = (props) => {
       }}
       className={styles.button}
     >
-      {props.children}
+      <div className={styles.background} />
+      <p>{props.children}</p>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/components/Input.module.css";
+import styles from "../styles/components/Picker.module.css";
 
-const Input = (props) => {
+const Picker = (props) => {
   return (
     <div
       style={{
@@ -14,7 +14,8 @@ const Input = (props) => {
       }}
     >
       <p className={styles.title}>{props.title}</p>
-      <input
+      <div
+        style={styles.killer}
         type={props.type}
         className={styles.input}
         value={props.value}
@@ -25,4 +26,4 @@ const Input = (props) => {
   );
 };
 
-export default Input;
+export default Picker;

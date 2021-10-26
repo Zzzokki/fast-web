@@ -1,7 +1,7 @@
 .container {
   position: relative;
   width: 412px;
-  height: 60px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
   position: absolute;
   top: 6px;
   left: 6px;
-  height: 48px;
+  height: 40px;
   width: 200px;
   background-color: #fbb532;
   border-radius: 6px;

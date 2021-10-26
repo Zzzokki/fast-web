@@ -19,7 +19,7 @@
 }
 
 .innerContainer {
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 172px);
   overflow-y: scroll;
 }
 .innerContainer::-webkit-scrollbar {

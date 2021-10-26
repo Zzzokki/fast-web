@@ -3,26 +3,32 @@ import styles from "../styles/modals/Modal.module.css";
 
 import Button from "../components/button";
 import Input from "../components/input";
+import Picker from "../components/picker";
 
-const AddStudent = ({ close }) => {
+const AddClassroom = ({ close }) => {
   return (
     <div className={styles.container}>
       <div onClick={close} className={styles.background} />
       <div className={styles.card}>
+        <Picker title='Багш' />
         <div className={styles.grid}>
-          <Input type='text' title='Овог' />
+          <Picker title='Анги' />
           <div />
-          <Input type='text' title='Нэр' />
+          <Input type='number' title='Анги дүүргэлт' />
         </div>
-        <Input type='text' title='Утас' />
-        <Input type='text' title='Сургууль' />
+        <div className={styles.grid}>
+          <Input type='date' title='Эхлэх хугацаа' />
+          <div />
+          <Input type='date' title='Дуусах хугацаа' />
+        </div>
+
         <div className={styles.grid}>
           <Button onClick={close} mt='12px' h='48px'>
             Болих
           </Button>
           <div />
           <Button mt='12px' h='48px'>
-            Сурагч нэмэх
+            Анги нэмэх
           </Button>
         </div>
       </div>
@@ -30,4 +36,4 @@ const AddStudent = ({ close }) => {
   );
 };
 
-export default AddStudent;
+export default AddClassroom;
