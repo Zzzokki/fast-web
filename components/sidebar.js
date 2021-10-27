@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../styles/components/Sidebar.module.css";
 import { useRouter } from "next/router";
+import Authentication from "../contexts/authContext";
 
 const Sidebar = () => {
   const router = useRouter();
+  const { logout } = useContext(Authentication);
 
   return (
     <div className={styles.container}>
@@ -35,6 +37,9 @@ const Sidebar = () => {
         }}
       >
         Сурагчид
+      </div>
+      <div onClick={logout} className={styles.button}>
+        Гарах
       </div>
     </div>
   );

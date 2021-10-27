@@ -14,13 +14,24 @@ const Picker = (props) => {
       }}
     >
       <p className={styles.title}>{props.title}</p>
-      <div
+      {/* <div
         style={styles.killer}
         type={props.type}
         className={styles.input}
         value={props.value}
         onChange={props.onChange}
-      />
+      >
+        <div className={styles.options}>
+          {props.options.map(() => (
+            <div></div>
+          ))}
+        </div>
+      </div> */}
+      <select>
+        {props.options.map((option) => (
+          <option value={option.id}>{option.name}</option>
+        ))}
+      </select>
       <p className={styles.error}></p>
     </div>
   );
