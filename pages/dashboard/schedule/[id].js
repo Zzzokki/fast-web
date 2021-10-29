@@ -1,18 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import styles from "../../../styles/Classroom.module.css";
+import styles from "../../../styles/Schedule.module.css";
 import { useAuth } from "../../../contexts/authContext";
 import { useRouter } from "next/router";
 
 import { BsChevronLeft } from "react-icons/bs";
 
-import AddStudent from "../../../modals/addStudent";
-
 import Layout from "../../../layouts/layout";
 import Button from "../../../components/button";
 
-import ClassroomTable from "../../../components/classroom/classroomTable";
+import ScheduleTable from "../../../components/schedule/scheduleTable";
 
-const ClassroomPage = () => {
+const Schedule = () => {
   const { isLoggedIn } = useAuth();
   const router = useRouter();
   const [adding, setAdding] = useState(false);
@@ -35,39 +33,29 @@ const ClassroomPage = () => {
               h="40px"
               mr="20px"
               onClick={() => {
-                router.push("/dashboard/classrooms");
+                router.push("/dashboard/schedule");
               }}
             >
               <BsChevronLeft style={{ width: 20, height: 20 }} />
             </Button>
-            <div className={styles.classroom}></div>
-            <Button
-              onClick={() => {
-                setAdding(true);
-              }}
-              ml="20px"
-              w="150px"
-              h="40px"
-            >
-              Сурагч нэмэх
-            </Button>
+            <p className={styles.title}>Хичээлийн хуваарь</p>
           </div>
 
           {/* Table */}
 
-          <ClassroomTable />
+          <ScheduleTable />
         </div>
-        {adding && (
+        {/* {adding && (
           <AddStudent
             close={() => {
               setAdding(false);
             }}
           />
-        )}
+        )} */}
       </Layout>
     );
   }
   return <></>;
 };
 
-export default ClassroomPage;
+export default Schedule;

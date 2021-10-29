@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import styles from "../../styles/components/Status.module.css";
 
-const colors = ["#7AF696", "#FF3636", "#78C6FF", "#78C6FF", "#78C6FF"];
+const colors = ["#7AF696", "#FF3636", "#78C6FF", "#78C6FF", "#FF3636"];
 const marks = ["A", "B", "C", "D", "F"];
 
 const Exam = ({ value }) => {

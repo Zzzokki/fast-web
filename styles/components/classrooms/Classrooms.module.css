@@ -41,6 +41,3 @@
   overflow: hidden;
   cursor: pointer;
 }
-.classroom:hover {
-  background-color: rgba(251, 181, 50, 0.8);
-}

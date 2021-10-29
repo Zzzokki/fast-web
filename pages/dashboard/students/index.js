@@ -1,4 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useAuth } from "../../../contexts/authContext";
+import { useRouter } from "next/router";
 import styles from "../../../styles/Students.module.css";
 
 import Layout from "../../../layouts/layout";
@@ -7,19 +9,17 @@ import Button from "../../../components/button";
 import Classroom from "../../../components/students/classroom";
 import StudentsTable from "../../../components/students/studentsTable";
 
-import { useRouter } from "next/router";
-import Authentication from "../../../contexts/authContext";
-
-const StudentsPage = (props) => {
+const StudentsPage = () => {
   const router = useRouter();
-  const auth = useContext(Authentication);
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
-    console.log(auth.isLoggedIn);
-    if (!auth.isLoggedIn) router.push("/dashboard");
+    if (!isLoggedIn) {
+      router.push("/dashboard");
+    }
   }, []);
 
-  if (auth.isLoggedIn) {
+  if (isLoggedIn) {
     return (
       <Layout>
         <div className={styles.container}>
@@ -27,7 +27,7 @@ const StudentsPage = (props) => {
           <div className={styles.classroomsContainer}>
             <div className={styles.header}>
               <p>Ангиуд</p>
-              <Button w='24px' h='24px'>
+              <Button w="24px" h="24px">
                 +
               </Button>
             </div>

@@ -10,5 +10,6 @@
   align-items: center;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-left: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: #fbb532;
+  background-color: #f5f5f5;
+  font-size: 12px;
 }

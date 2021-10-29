@@ -14,7 +14,9 @@ const Fullnames = ({ data, scroll }) => {
   return (
     <div style={{ transform: `translateY(${-scrollTop}px)` }}>
       {data.map((item) => (
-        <div className={styles.fullname}>{item.firstname}</div>
+        <div
+          className={styles.fullname}
+        >{`${item.firstname} ${item.lastname}`}</div>
       ))}
     </div>
   );

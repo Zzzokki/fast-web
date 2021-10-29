@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/components/students/Student.module.css";
 
-const Student = ({ selected, setSelected, index }) => {
+const Student = ({ index }) => {
+  const [selected, setSelected] = useState(false);
+
   return (
     <>
       <div
@@ -20,20 +22,16 @@ const Student = ({ selected, setSelected, index }) => {
           <div
             className={styles.expander}
             style={{
-              backgroundColor: selected === index && "#fbb532",
-              height: selected === index ? 240 : 40,
+              backgroundColor: selected && "#fbb532",
+              height: selected ? 240 : 40,
             }}
             onClick={() => {
-              if (selected !== index) {
-                setSelected(index);
-              } else {
-                setSelected(null);
-              }
+              setSelected((prev) => !prev);
             }}
           ></div>
         </div>
       </div>
-      {selected === index && (
+      {selected && (
         <div className={styles.expand}>
           <div></div>
           <div className={styles.expandEnd}></div>

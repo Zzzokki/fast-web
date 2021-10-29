@@ -2,7 +2,14 @@
   height: 100%;
   width: 100%;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.5);
+}
+.imageContainer {
+  height: 100%;
+  flex: 1;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .formContainer {
   width: 768px;

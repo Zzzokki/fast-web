@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/components/Status.module.css";
 
-const colors = ["#7AF696", "#FF3636", "#78C6FF"];
+const colors = ["#7CDF64", "#AB3428", "#78C6FF"];
 const values = ["Ирсэн", "Тасалсан", "Чөлөөтэй"];
 
 const Attendance = ({ value }) => {

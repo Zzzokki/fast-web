@@ -24,18 +24,3 @@ a {
   display: flex;
   overflow: hidden;
 }
-.p20 {
-  padding: 20px;
-}
-.h100 {
-  height: 100%;
-}
-.w100 {
-  width: 100%;
-}
-.flex {
-  display: flex;
-}
-.f1 {
-  flex: 1;
-}

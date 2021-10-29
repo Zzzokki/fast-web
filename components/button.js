@@ -19,7 +19,7 @@ const Button = (props) => {
       className={styles.button}
     >
       <div className={styles.background} />
-      <p>{props.children}</p>
+      <div className={styles.children}>{props.children}</div>
     </div>
   );
 };

@@ -22,7 +22,9 @@ const Dates = ({ data, scroll }) => {
             borderLeft: index === 0 && "none",
           }}
           className={styles.recordCell}
-        ></div>
+        >
+          {item.dateAt}
+        </div>
       ))}
     </div>
   );

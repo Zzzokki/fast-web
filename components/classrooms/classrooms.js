@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import styles from "../../styles/components/classrooms/Classrooms.module.css";
 
@@ -11,6 +12,8 @@ const rows = [
 ];
 
 const Classrooms = (props) => {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -24,6 +27,9 @@ const Classrooms = (props) => {
         {props.data.map((item, index) => (
           <div
             key={`${index}`}
+            onClick={() => {
+              router.push("/dashboard/classrooms/1");
+            }}
             style={{ borderTop: index > 0 && "1px solid rgba(0, 0, 0, 0.2)" }}
             className={styles.classroom}
           >

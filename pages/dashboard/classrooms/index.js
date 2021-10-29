@@ -1,5 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../../../contexts/authContext";
 import styles from "../../../styles/Classrooms.module.css";
+import router from "next/router";
 
 import Layout from "../../../layouts/layout";
 
@@ -7,11 +9,9 @@ import Button from "../../../components/button";
 import Switcher from "../../../components/switcher";
 import Classrooms from "../../../components/classrooms/classrooms";
 import AddClassroom from "../../../modals/addClassroom";
-import router from "next/router";
-import Authentication from "../../../contexts/authContext";
 
 const ClassroomsPage = () => {
-  const auth = useContext(Authentication);
+  const { isLoggedIn } = useAuth();
   const [status, setStatus] = useState(0);
   const [adding, setAdding] = useState(false);
 
@@ -20,10 +20,12 @@ const ClassroomsPage = () => {
   };
 
   useEffect(() => {
-    if (!auth.isLoggedIn) router.push("/dashboard");
+    if (!isLoggedIn) {
+      router.push("/dashboard");
+    }
   }, []);
 
-  if (auth.isLoggedIn) {
+  if (isLoggedIn) {
     return (
       <Layout>
         <div className={styles.container}>
@@ -37,8 +39,8 @@ const ClassroomsPage = () => {
               onClick={() => {
                 setAdding(true);
               }}
-              h='40px'
-              w='160px'
+              h="40px"
+              w="160px"
             >
               Анги нэмэх
             </Button>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "../../styles/components/classroom/Fullname.module.css";
 
+import { RiSearchLine } from "react-icons/ri";
+
 import Button from "../button";
 
 const Fullname = () => {
@@ -17,7 +19,7 @@ const Fullname = () => {
         h="24px"
         w="24px"
       >
-        o
+        <RiSearchLine />
       </Button>
     </div>
   );
